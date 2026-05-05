@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SnackSwap</title>
+  <title>Fullscreen Iframe with Shielded Popup</title>
+
+  <!-- Favicon (cookie emoji) -->
   <link rel="icon" href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-    <text y='0.9em' font-size='90'>🍪</text>
-  </svg>">
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <text y='0.9em' font-size='90'>🍪</text>
+    </svg>">
 
   <style>
     html, body {
@@ -43,7 +45,7 @@
       white-space: nowrap;
     }
 
-    /* SHIELD: EXACT SAME SIZE AS POPUP */
+    /* SHIELD: EXTENDED FAR LEFT */
     .click-shield {
       position: fixed;
       bottom: 14px;
@@ -52,10 +54,9 @@
       background: transparent;
       pointer-events: auto;
 
-      /* Explicit size so it ALWAYS blocks clicks */
-      width: calc(24px + 24px + 8ch); 
+      /* EXTENDED WIDTH — covers entire Base44 popup area */
+      width: 360px;  /* extended a LOT to the left */
       height: calc(12px + 12px + 1.2em);
-
       border-radius: 8px;
     }
   </style>
