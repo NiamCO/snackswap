@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Fullscreen Iframe with Shielded Popup</title>
+  <title>SnackSwap</title>
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <text y='0.9em' font-size='90'>🍪</text>
+  </svg>">
+
   <style>
     html, body {
       margin: 0;
@@ -22,7 +27,7 @@
       z-index: 1;
     }
 
-    /* YOUR POPUP (unchanged except earlier width increase) */
+    /* YOUR POPUP (unchanged) */
     .macvg-popup {
       position: fixed;
       bottom: 14px;
@@ -43,19 +48,15 @@
       position: fixed;
       bottom: 14px;
       right: 14px;
-      z-index: 2147483646; /* right under your popup */
+      z-index: 2147483646;
       background: transparent;
       pointer-events: auto;
 
-      /* Match popup size exactly */
-      padding: 12px 24px;
-      font-size: 13px;
-      border-radius: 8px;
+      /* Explicit size so it ALWAYS blocks clicks */
+      width: calc(24px + 24px + 8ch); 
+      height: calc(12px + 12px + 1.2em);
 
-      /* Needed to match the popup's text height */
-      display: inline-block;
-      height: calc(13px + 24px); /* text height + vertical padding */
-      width: auto;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -63,7 +64,7 @@
 
   <iframe src="https://snackswap.base44.app"></iframe>
 
-  <!-- Shield goes under your popup -->
+  <!-- Shield under your popup -->
   <div class="click-shield"></div>
 
   <!-- Your popup -->
